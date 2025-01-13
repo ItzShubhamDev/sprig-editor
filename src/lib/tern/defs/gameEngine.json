@@ -1,0 +1,187 @@
+{
+    "!name": "gameEngine",
+    "setMap": {
+        "!type": "fn(string: string) -> void",
+        "!doc": "Sets the map for the game by parsing a string representation of the level."
+    },
+    "addText": {
+        "!type": "fn(str: string, opts?: object) -> void",
+        "!doc": "Adds text to the game screen with options for position and color."
+    },
+    "clearText": {
+        "!type": "fn() -> void",
+        "!doc": "Clears all the text from the game screen."
+    },
+    "addSprite": {
+        "!type": "fn(x: number, y: number, type: string) -> void",
+        "!doc": "Adds a sprite to the game at a specific location with a given type."
+    },
+    "getGrid": {
+        "!type": "fn() -> Array",
+        "!doc": "Returns a grid representation of the game state with sorted sprites."
+    },
+    "getTile": {
+        "!type": "fn(x: number, y: number) -> Array",
+        "!doc": "Returns the list of sprites located at a specific tile in the grid."
+    },
+    "tilesWith": {
+        "!type": "fn(...matchingTypes: []) -> Array",
+        "!doc": "Returns a list of tiles that match the given types."
+    },
+    "clearTile": {
+        "!type": "fn(x: number, y: number) -> void",
+        "!doc": "Removes the sprite at the specified tile coordinates."
+    },
+    "setSolids": {
+        "!type": "fn(arr: Array) -> void",
+        "!doc": "Sets the array of solid sprites for the game."
+    },
+    "setPushables": {
+        "!type": "fn(map: object) -> void",
+        "!doc": "Sets the pushable sprites map in the game."
+    },
+    "setBackground": {
+        "!type": "fn(type: string) -> void",
+        "!doc": "Sets the background for the game."
+    },
+    "map": {
+        "!type": "fn(strings: Array, ...interps: Array) -> string",
+        "!doc": "Tagged template literal function for creating a game map."
+    },
+    "bitmap": {
+        "!type": "fn(strings: Array, ...interps: Array) -> string",
+        "!doc": "Tagged template literal function for creating a bitmap."
+    },
+    "color": {
+        "!type": "fn(strings: Array, ...interps: Array) -> string",
+        "!doc": "Tagged template literal function for handling colors."
+    },
+    "tune": {
+        "!type": "fn(strings: Array, ...interps: Array) -> string",
+        "!doc": "Tagged template literal function for handling tunes."
+    },
+    "getFirst": {
+        "!type": "fn(type: string) -> ?Sprite",
+        "!doc": "Returns the first sprite of the specified type."
+    },
+    "getAll": {
+        "!type": "fn(type?: string) -> Array",
+        "!doc": "Returns all sprites of the specified type, or all sprites if no type is given."
+    },
+    "width": {
+        "!type": "fn() -> number",
+        "!doc": "Returns the width of the game map."
+    },
+    "height": {
+        "!type": "fn() -> number",
+        "!doc": "Returns the height of the game map."
+    },
+    "setLegend": {
+        "!type": "fn(...bitmaps: Array) -> void",
+        "!doc": "Sets the sprites in the legend with their respective bitmaps."
+    },
+    "onInput": {
+        "!type": "fn(key: string, fn: fn() -> void) -> void",
+        "!doc": "Registers an input handler for a specific key."
+    },
+    "afterInput": {
+        "!type": "fn(fn: fn() -> void) -> void",
+        "!doc": "Registers a function to be called after all input events are processed."
+    },
+    "getState": {
+        "!type": "fn() -> object",
+        "!doc": "Returns the current game state."
+    },
+    "playTune": {
+        "!type": "fn(text: string, n: number) -> object",
+        "!doc": "Plays a tune based on the provided text and frequency."
+    },
+    "break": {
+        "!type": "fn() -> void",
+        "!doc": "Terminates the current loop or switch statement."
+    },
+    "case": {
+        "!type": "fn(value: any) -> void",
+        "!doc": "Specifies a possible match value within a switch statement."
+    },
+    "catch": {
+        "!type": "fn(exception: any) -> void",
+        "!doc": "Defines a block of code to handle errors thrown in a try block."
+    },
+    "const": {
+        "!type": "type",
+        "!doc": "Declares a constant variable that cannot be reassigned."
+    },
+    "continue": {
+        "!type": "fn() -> void",
+        "!doc": "Skips the current iteration of a loop and proceeds to the next iteration."
+    },
+    "else": {
+        "!type": "fn() -> void",
+        "!doc": "Defines an alternative block of code to execute if the condition of an if statement is false."
+    },
+    "false": {
+        "!type": "boolean",
+        "!doc": "Represents the boolean value false."
+    },
+    "finally": {
+        "!type": "fn() -> void",
+        "!doc": "Defines a block of code that is always executed after a try-catch block, regardless of whether an error was thrown."
+    },
+    "for": {
+        "!type": "fn(init: any, condition: fn() -> boolean, update: fn() -> void) -> void",
+        "!doc": "Defines a loop that executes a block of code a specified number of times."
+    },
+    "function": {
+        "!type": "fn(...args: []) -> any",
+        "!doc": "Defines a function that can be invoked with specific arguments."
+    },
+    "if": {
+        "!type": "fn(condition: boolean, trueBlock: fn() -> void, falseBlock?: fn() -> void) -> void",
+        "!doc": "Evaluates a condition and executes a block of code if the condition is true, optionally executing an else block if false."
+    },
+    "in": {
+        "!type": "fn(value: any, container: any) -> boolean",
+        "!doc": "Checks if a value exists in a container (array, object)."
+    },
+    "new": {
+        "!type": "fn(constructor: fn() -> any, ...args: []) -> any",
+        "!doc": "Creates a new instance of a given constructor function."
+    },
+    "null": {
+        "!type": "any",
+        "!doc": "Represents the intentional absence of any object value."
+    },
+    "return": {
+        "!type": "fn(value: any) -> void",
+        "!doc": "Exits from a function and optionally returns a value."
+    },
+    "switch": {
+        "!type": "fn(value: any) -> void",
+        "!doc": "Defines a switch statement for comparing a value against multiple cases."
+    },
+    "true": {
+        "!type": "boolean",
+        "!doc": "Represents the boolean value true."
+    },
+    "try": {
+        "!type": "fn(block: fn() -> void) -> void",
+        "!doc": "Defines a block of code that will be tested for errors during execution."
+    },
+    "typeof": {
+        "!type": "fn(value: any) -> string",
+        "!doc": "Returns a string representing the type of a given value."
+    },
+    "var": {
+        "!type": "any",
+        "!doc": "Declares a variable that can be reassigned and has function-scoped or globally-scoped visibility."
+    },
+    "void": {
+        "!type": "fn() -> void",
+        "!doc": "Specifies that a function does not return any value."
+    },
+    "while": {
+        "!type": "fn(condition: fn() -> boolean) -> void",
+        "!doc": "Defines a loop that executes as long as a specified condition evaluates to true."
+    }
+}

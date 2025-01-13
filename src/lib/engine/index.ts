@@ -9,7 +9,6 @@ import TransformDetectInfiniteLoop, {
 } from "../custom-babel-transforms";
 import { normalizeGameError } from "./error";
 import type { NormalizedError } from "./error";
-// import { logInfo } from "../../components/logs";
 
 interface RunResult {
     error: NormalizedError | null;
