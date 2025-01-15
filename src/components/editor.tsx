@@ -135,6 +135,17 @@ const CodeEditor = () => {
     };
 
     useEffect(() => {
+        const width = window.innerWidth;
+        if (width < 1024) {
+            setError({
+                description:
+                    "Game output requires a larger screen. Please use a screen with a width of at least 1024px.",
+                raw: {},
+            });
+        }
+    }, []);
+
+    useEffect(() => {
         localStorage.setItem("code", code);
         if (code.length === 0) return;
         const { error, cleanup } = _performSyntaxCheck(code);
@@ -144,16 +155,18 @@ const CodeEditor = () => {
 
     return (
         <>
-            <div className={"flex p-2 w-full space-x-2 h-screen bg-gray-900"}>
-                <div className={"flex flex-col w-3/5 space-y-2"}>
+            <div className={"md:flex p-2 w-full min-h-screen md:h-screen bg-gray-900"}>
+                <div className={"flex flex-col md:w-3/5 space-y-2 h-full max-md:h-screen"}>
                     <div
                         ref={editorRef}
-                        className={"flex-1 w-full overflow-y-auto"}
+                        className={
+                            "flex-1 min-h-72 md:w-[calc(100vw-16px)] lg:w-full overflow-y-auto"
+                        }
                     />
                     <PngToSprite />
                 </div>
-                <div className={"flex flex-col w-2/5 space-y-2"}>
-                    <div className="w-full relative">
+                <div className={"flex flex-col md:w-2/5 max-lg:justify-end md:ml-2"}>
+                    <div className="w-full relative max-lg:hidden">
                         <canvas
                             ref={canvasRef}
                             className="w-full aspect-[5/4] bg-gray-800 rounded-lg focus:outline-none"
@@ -205,18 +218,16 @@ const CodeEditor = () => {
                     </div>
 
                     <div
-                        className={"w-full flex-1 bg-[#263238] rounded-lg p-4"}
+                        className={
+                            "w-full lg:flex-1 bg-[#263238] rounded-lg p-4 max-lg:h-60 mt-2"
+                        }
                     >
                         <div className={"text-gray-200"}>Errors</div>
                         <div className={"w-full"}>
                             {error && (
-                                <pre
-                                    className={
-                                        "text-sm text-red-500 overflow-auto"
-                                    }
-                                >
+                                <code className={"text-sm text-red-500"}>
                                     {error.description}
-                                </pre>
+                                </code>
                             )}
                         </div>
                     </div>
