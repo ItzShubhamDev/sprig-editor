@@ -146,8 +146,8 @@ const CodeEditor = () => {
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("code", code);
         if (code.length === 0) return;
+        localStorage.setItem("code", code);
         const { error, cleanup } = _performSyntaxCheck(code);
         setError(error);
         return cleanup;
